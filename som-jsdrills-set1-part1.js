@@ -35,11 +35,7 @@ function getYearOfBirth(age){
 }
 
 function createGreeting(name, age){
-	if (!!name || === ''){
-		throw 'Arguments not valid'
-	}
-
-	if (!!age || === ''){
+	if (name === undefined || age ===  undefined){
 		throw 'Arguments not valid'
 	}
 
@@ -47,14 +43,13 @@ function createGreeting(name, age){
 		throw new TypeError();
 	}
 
-	if (typeof age == NaN) {
+	if (typeof age == NaN || typeof age === 'string') {
 		throw new TypeError();
 	}
 
 	const yob = getYearOfBirth(age);
-	return "Hi, my name is " name + " and I was born in " + yob + " .";
-}
-
+	return "Hi, my name is " +  name + " and I was born in " + yob.toString() + " .";
+};
 
 function yearOfBirth(age){
 	if (age < 0) {
